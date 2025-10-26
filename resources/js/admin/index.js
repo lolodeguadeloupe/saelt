@@ -60,3 +60,4 @@ import './app-config';import './planing-vehicule';
 import './coup-coeur-produit';
 import './interet-retard-restitution-vehicule';
 import './supplement-location-vehicule';
+import './user';
