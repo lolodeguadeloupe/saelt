@@ -31,4 +31,10 @@ node_modules/
 
 # Task files
 # tasks.json
-# tasks/ 
+# tasks/
+
+# Claude Code
+.claude/
+CLAUDE.md
+AGENTS.md
+openspec/ 
