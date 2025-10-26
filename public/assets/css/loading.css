@@ -1,0 +1,191 @@
+.spinner {
+    margin: 100px auto;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.spinner>div {
+    background-color: #dfab1d;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.spinner .rect2 {
+    -webkit-animation-delay: -1.1s;
+    animation-delay: -1.1s;
+}
+
+.spinner .rect3 {
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+}
+
+.spinner .rect4 {
+    -webkit-animation-delay: -0.9s;
+    animation-delay: -0.9s;
+}
+
+.spinner .rect5 {
+    -webkit-animation-delay: -0.8s;
+    animation-delay: -0.8s;
+}
+
+.calendar-content-day-div {
+    position: absolute;
+    background: #ffffff;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    z-index: 1;
+}
+
+.calendar-content-day-div-content {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: auto;
+}
+
+.calendar-content-day-div-close {
+    display: flex;
+    position: absolute;
+    top: 34px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.calendar-content-day-div-title {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    /**/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calendar-content-day-div-title::after {
+    content: "";
+    background-color: #37b5de;
+    border-color: transparent;
+    height: 1px;
+    width: 50%;
+}
+
+.calendar-content-day-span {
+    padding: 2px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 18px;
+    text-align: center;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.calendar-content-day-span:hover {
+    transform: scale(1.1);
+}
+
+.calendar-content-day-span.add {
+    background: #73aa47;
+    color: white;
+}
+
+.calendar-content-day-span.remove {
+    background: #f56565;
+    color: white;
+}
+
+@-webkit-keyframes sk-stretchdelay {
+    0%,
+    40%,
+    100% {
+        -webkit-transform: scaleY(0.4)
+    }
+    20% {
+        -webkit-transform: scaleY(1.0)
+    }
+}
+
+@keyframes sk-stretchdelay {
+    0%,
+    40%,
+    100% {
+        transform: scaleY(0.4);
+        -webkit-transform: scaleY(0.4);
+    }
+    20% {
+        transform: scaleY(1.0);
+        -webkit-transform: scaleY(1.0);
+    }
+}
+
+
+/**/
+
+.calendar-content-day-div-close>.close-button {
+    width: 20px;
+    height: 20px;
+    box-shadow: 0px 10 10px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background: #beb94e;
+    display: block;
+    position: relative;
+}
+
+.calendar-content-day-div-close>.close-button:before,
+.calendar-content-day-div-close>.close-button:after {
+    content: '';
+    width: 80%;
+    height: 2px;
+    background: #fff;
+    position: absolute;
+    top: 9px;
+    left: 2px;
+    -webkit-transform: rotate( -45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate( -45deg);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.calendar-content-day-div-close>.close-button:after {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.calendar-content-day-div-close>.close-button:hover:before,
+.calendar-content-day-div-close>.close-button:hover:after {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+

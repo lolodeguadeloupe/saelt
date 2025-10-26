@@ -1,0 +1,34 @@
+<div class="form-group row align-items-center">
+    <label for="nom" class="col-form-label text-md-right reauired" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.compagnie-transport.columns.nom') }}</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" required class="form-control" name="nom" placeholder="{{ trans('admin.compagnie-transport.columns.nom') }}">
+</div>
+</div>
+
+<div class="form-group row align-items-center" >
+    <label for="email" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.compagnie-transport.columns.email') }}</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" required class="form-control" data-ctr="email" name="email" placeholder="{{ trans('admin.compagnie-transport.columns.email') }}">
+    </div>
+</div>
+
+<div class="form-group row align-items-center" >
+    <label for="phone" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.compagnie-transport.columns.phone') }}</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" required class="form-control" data-ctr="phone" name="phone" placeholder="{{ trans('admin.compagnie-transport.columns.phone') }}">
+    </div>
+</div>
+
+<div class="form-group row align-items-center" >
+    <label for="adresse" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.compagnie-transport.columns.adresse') }}</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" required class="form-control" name="adresse" placeholder="{{ trans('admin.compagnie-transport.columns.adresse') }}">
+    </div>
+</div>
+
+<div class="form-group row align-items-center" >
+    <label for="type_transport" class="col-form-label text-md-right" :class="isFormLocalized ? 'col-md-4' : 'col-md-2'">{{ trans('admin.compagnie-transport.columns.type_transport') }}</label>
+        <div :class="isFormLocalized ? 'col-md-4' : 'col-md-9 col-xl-8'">
+        <input type="text" readonly required class="form-control" name="type_transport" value="Maritime" placeholder="{{ trans('admin.compagnie-transport.columns.type_transport') }}">
+    </div>
+</div>

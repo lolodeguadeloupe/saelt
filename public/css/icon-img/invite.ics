@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Recruitee//Recruitee Events//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+DTSTART:20211221T113011Z
+DTEND:20211221T114511Z
+CREATED:20211221T065821Z
+DTSTAMP:20211221T065824Z
+ORGANIZER;CN=Fenitra Rabenja:MAILTO:fenitra@novity.io
+SUMMARY:Rakotoarison Mamy Andry Manitra Nomenjanahary - Phone interview
+DESCRIPTION:Phone interview\nCandidate: Rakotoarison Mamy Andry Manitra No
+ menjanahary\nInterviewers: Fenitra Rabenja\nEvent: https://recrutement.nov
+ ity.io/v/events/8m5g5bp778p6
+LOCATION:
+URL:https://recrutement.novity.io/v/events/8m5g5bp778p6
+UID:8m5g5bp778p6@recruitee.com
+END:VEVENT
+END:VCALENDAR

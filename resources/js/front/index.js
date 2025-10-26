@@ -1,0 +1,12 @@
+import './hebergement';
+import './excursion';
+import './location';
+import './billeterie';
+import './transfert';
+import './facturation';
+import './panier';
+import './other-product';
+import './remerciement';
+/** */
+import './aside-page';
+import './header-bar';

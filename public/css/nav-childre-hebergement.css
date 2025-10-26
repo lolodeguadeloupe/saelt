@@ -1,0 +1,316 @@
+/*
+    .dropdown-menu.child--nav-item {
+        display: block !important;
+        position: relative !important;
+        top: unset !important;
+        left: unset !important;
+        min-width: unset !important;
+        width: 100%;
+        border-radius: 0 !important;
+    }
+
+    .has--child-nav .child-_nav {
+        padding-right: 0 !important;
+        margin-right: 0 !important;
+        width: 100%;
+        height: 100% !important;
+        padding-bottom: 1.5rem !important;
+    }
+
+    .has--child-nav .child-_nav._bg{
+        background-color: #fff !important;
+    }
+
+    .has--child-nav .content-_nav {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    .heb--title {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .has--child-nav .content-_nav .card {
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+    }
+
+
+    ul.my-_nav a {
+        text-decoration: none !important;
+    }
+
+    ul.my-_nav {
+        list-style: none;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .my-_nav>li {
+        margin: 5px 10px;
+        padding: 5px;
+    }
+
+    .my-_nav li,
+    .my-_nav ul {
+        display: contents;
+    }
+
+    .my-_nav>li.my-_parent {
+        display: flex;
+    }
+
+    .my-_nav .my-_children-nav ul>li {
+        margin: 0;
+        padding: 5px 0;
+    }
+
+    */
+
+@keyframes fade-out-nav {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes fade-in-nav {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.row.has--child-nav {
+    margin-top: -1px !important;
+}
+
+.has--child-nav .content-_nav .card {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+}
+
+.has--child-nav .content-_nav {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.has--child-nav .child-_nav {
+    padding-right: 0 !important;
+    margin-right: -1px !important;
+    /* effet border*/
+    width: 100%;
+    height: 100% !important;
+    /*padding-bottom: 1.5rem !important;*/
+}
+
+.children-nav {
+    border: 1px solid #d6dee3;
+    ;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #f0f3f5 !important;
+    box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
+}
+
+.children-nav ._-nav {
+    padding: 0;
+    list-style: none;
+    margin-right: 1px !important;
+    /* effet border*/
+}
+
+.children-nav p:hover {
+    border-color: #d6dee3 !important;
+}
+
+.children-nav .children li:hover,
+.children-nav .parent:not(.active):hover {
+    background-color: #fff !important;
+}
+
+.children-nav ._-nav .parent {
+    padding: 0;
+    background-color: #f0f3f5;
+    border-radius: 2px;
+}
+
+.children-nav ._-nav .parent.open a[href='#'] p i {
+    float: right;
+    margin: 4px;
+    transform: rotate(90deg);
+}
+
+.parent.open ul.children {
+    position: relative;
+}
+
+.parent.open ul.children::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    border: 1px solid #5cb0d6;
+}
+
+.children-nav ._-nav .parent.active a[href='#'] p i {
+    color: white;
+}
+
+.children-nav ._-nav .parent a[href='#'] p i {
+    float: right;
+    margin: 4px;
+    color: black;
+}
+
+.children-nav ._-nav .parent.active {
+    color: #343a40;
+    background-color: #21a9e0a8;
+}
+
+.children-nav ._-nav .parent.active .children {
+    /*background-color: #00b2fa;*/
+}
+
+.children-nav ._-nav .parent.active .children li.active {
+    background-color: rgba(255, 255, 255, .9);
+    color: #fff;
+}
+
+.children-nav ._-nav .parent .children {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: none;
+    max-height: 0;
+    background-color: #f0f3f5;
+}
+
+.children-nav ._-nav .parent .children * {
+    max-height: 0;
+}
+
+
+/*.children-nav ._-nav .parent.active .children{
+        display: block;
+    }*/
+
+.children-nav ._-nav .parent.open .children {
+    display: block;
+}
+
+.children-nav ._-nav .parent.open .children {
+    display: block;
+    max-height: unset;
+}
+
+.children-nav ._-nav .parent.open .children * {
+    display: block;
+    max-height: unset;
+}
+
+.children-nav ._-nav .parent .children li {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.children-nav ._-nav p {
+    padding: 0 !important;
+    margin: 0 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1px solid transparent !important;
+    border-width: 1px 0 1px 0 !important;
+}
+
+.children-nav ._-nav a {
+    text-decoration: none;
+}
+
+.children-nav ._-nav a p {
+    color: black;
+    padding: 5px 15px !important;
+    min-width: 130px;
+}
+
+.children-nav ._-nav .children p {
+    color: black;
+    padding-left: 30px !important;
+}
+
+.children-nav ._-nav a:hover {
+    text-decoration: none !important;
+}
+
+.nav-hover {
+    display: none;
+    position: absolute;
+    background-color: #f0f3f5 !important;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #d6dee3;
+    z-index: 10;
+}
+
+@media screen and (max-width: 767.98px) {
+    .nav-hover-open.children-nav {
+        position: absolute;
+        z-index: 13;
+        min-width: 200px;
+        /*height: calc(100% - 25px) !important;*/
+        /*display: none;*/
+    }
+    .nav-hover {
+        display: block;
+        /**height: calc(100% - 25px) !important;*/
+    }
+    .nav-hover-open .nav-hover,
+    .nav-hover-open.children-nav ._-nav li::before {
+        display: none !important;
+    }
+    .children-nav ._-nav li.active::before {
+        border-color: #10a4e0 !important;
+    }
+    .children-nav ._-nav li {
+        position: relative;
+    }
+    .children-nav ._-nav li:not(.open)::before {
+        content: "\f105";
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        color: #10a4e0;
+        text-align: center;
+        border: 1px solid white;
+        position: absolute;
+        top: calc(50% - 10px);
+        left: 20px;
+        display: block;
+        z-index: 11;
+    }
+    .children-nav ._-nav li.parent ul.children {
+        margin-top: -50px !important;
+    }
+    .nav-hover-open.children-nav ._-nav li.parent ul.children {
+        margin-top: initial !important;
+    }
+    .children-nav ._-nav li.parent:not(.open) {
+        height: 37px;
+    }
+    .nav-hover-open.children-nav {
+        animation: fade-in-nav 1s;
+    }
+    .children-nav:not(.nav-hover-open) .nav-hover {
+        color: red !important;
+        animation: fade-in-nav 1s;
+    }
+}

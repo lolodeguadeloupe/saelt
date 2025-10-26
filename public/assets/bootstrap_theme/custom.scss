@@ -1,0 +1,95 @@
+$theme-yellow: #dfab1d;
+$theme-black: #111111;
+$primary: $theme-yellow;
+
+@import "bootstrap/bootstrap";
+
+.bg-theme-black {
+    background-color: $theme-black !important;
+}
+
+/* Custom CSS rules come here */
+.navbar-top .nav-item {
+    position: relative;
+}
+
+.navbar-top .nav-item:hover:after,
+.navbar-top .nav-item.active:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: $theme-yellow;
+}
+
+.navbar.fixed-top.scrolled {
+    background-color: $theme-black !important;
+    transition: background-color 200ms linear;
+}
+
+#slider-price {
+    width: 100%;
+}
+
+#slider-price .slider-track-high,
+#slider-price .slider-track-high {
+    background: $gray-900;
+}
+
+#slider-price .slider-track-low,
+#slider-price .slider-track-low {
+    background: $gray-900;
+}
+
+#slider-price .slider-selection {
+    background: $theme-yellow;
+}
+
+#slider-price .slider-handle {
+    background: $yellow;
+}
+
+.text-shadow {
+    text-shadow: 1px 2px 3px #00000059;
+}
+
+hr.separator {
+    width: 60px;
+    border-top: 4px solid $theme-yellow;
+    margin-top: 0;
+}
+
+.slick-prev:before,
+.slick-next:before,
+.slick-dots li button:before,
+.slick-dots li.slick-active button:before {
+    color: $theme-yellow !important;
+}
+
+.font-size-0-8-em {
+    font-size: 0.8em !important;
+}
+
+.font-size-15-px {
+    font-size: 15px !important;
+}
+
+.font-size-0-9-em {
+    font-size: 0.9em !important;
+}
+
+.font-size-1-3-em {
+    font-size: 1.3em !important;
+}
+
+.bottom-0 {
+    bottom: 0 !important;
+}
+
+.font-size-1-em {
+    font-size: 1em !important;
+}
+
+.mh-120-px {
+    max-height: 50px !important;
+}

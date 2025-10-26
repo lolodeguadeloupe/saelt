@@ -1,0 +1,34 @@
+.phone-country {
+    display: flex !important;
+    flex-direction: row;
+}
+
+.select-code-phone-country {
+    border: 0px;
+    width: 30%;
+}
+
+.select-code-phone-country:focus-visible {
+    outline: none;
+}
+
+.input-phone-country {
+    border: 0px;
+    width: 70%;
+}
+
+.input-phone-country:focus-visible {
+    outline: none;
+}
+
+
+/*
+<span class="form-control phone-country">
+            <select class="select-code-phone-country">
+                @foreach(code_country() as $_code_country)
+                <option value="{{json_encode($_code_country)}}" data-code="{{$_code_country->code}}">{{$_code_country->name}}</option>
+                @endforeach
+            </select>
+            <input type="text" class="input-phone-country" name="phone" placeholder="{{ trans('admin.prestataire.columns.phone') }}">
+        </span>
+        */

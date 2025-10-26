@@ -1,0 +1,411 @@
+div#app {
+    box-sizing: border-box;
+  }
+  div#app .card-header {
+      color: #4273FA;
+    font-weight: 600;
+  }
+  div#app .card-header > i {
+    margin-right: 0.5rem;
+  }
+  div#app .pull-right {
+    float: right;
+  }
+  div#app .card-block {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+  }
+  div#app .table-listing thead th {
+    border: none;
+  }
+  div#app .bulk-checkbox {
+    width: 1%;
+    white-space: nowrap;
+  }
+  div#app [type=checkbox]:not(:checked),
+  div#app [type=checkbox]:checked {
+    position: absolute;
+    left: -9999px;
+  }
+  div#app [type=checkbox]:not(:checked) + label,
+  div#app [type=checkbox]:checked + label {
+    position: relative;
+    padding-left: 1.95em;
+    cursor: pointer;
+  }
+  div#app .bulk-checkbox label {
+    display: inline !important;
+  }
+  div#app .form-check-label {
+    color: #3e515b;
+  }
+  div#app [type=checkbox]:not(:checked) + label:before,
+  div#app [type=checkbox]:checked + label:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #C3CEDE;
+    background: white;
+    border-radius: 4px;
+    box-shadow: none;
+  }
+  div#app [type=checkbox]:checked + label:after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  div#app [type=checkbox]:checked + label:after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #4273FA;
+    top: 5px;
+    left: 5px;
+    border-radius: 3px;
+    color: #4273FA;
+    transition: all 0.2s;
+  }
+  div#app .table-listing thead tr {
+    border-bottom: 1px solid #f0f2f5;
+    border-top: 1px solid #dee3e7;
+  }
+  div#app .table-listing td:last-of-type {
+    min-width: 95px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  div#app .no-items-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+  }
+  div#app .no-items-found > i {
+    color: rgba(0, 0, 0, 0.2);
+    margin-bottom: 30px;
+    font-size: 70px;
+  }
+  div#app .icon-user,
+  div#app .icon-people,
+  div#app .icon-user-female,
+  div#app .icon-user-follow,
+  div#app .icon-user-following,
+  div#app .icon-user-unfollow,
+  div#app .icon-login,
+  div#app .icon-logout,
+  div#app .icon-emotsmile,
+  div#app .icon-phone,
+  div#app .icon-call-end,
+  div#app .icon-call-in,
+  div#app .icon-call-out,
+  div#app .icon-map,
+  div#app .icon-location-pin,
+  div#app .icon-direction,
+  div#app .icon-directions,
+  div#app .icon-compass,
+  div#app .icon-layers,
+  div#app .icon-menu,
+  div#app .icon-list,
+  div#app .icon-options-vertical,
+  div#app .icon-options,
+  div#app .icon-arrow-down,
+  div#app .icon-arrow-left,
+  div#app .icon-arrow-right,
+  div#app .icon-arrow-up,
+  div#app .icon-arrow-up-circle,
+  div#app .icon-arrow-left-circle,
+  div#app .icon-arrow-right-circle,
+  div#app .icon-arrow-down-circle,
+  div#app .icon-check,
+  div#app .icon-clock,
+  div#app .icon-plus,
+  div#app .icon-minus,
+  div#app .icon-close,
+  div#app .icon-event,
+  div#app .icon-exclamation,
+  div#app .icon-organization,
+  div#app .icon-trophy,
+  div#app .icon-screen-smartphone,
+  div#app .icon-screen-desktop,
+  div#app .icon-plane,
+  div#app .icon-notebook,
+  div#app .icon-mustache,
+  div#app .icon-mouse,
+  div#app .icon-magnet,
+  div#app .icon-energy,
+  div#app .icon-disc,
+  div#app .icon-cursor,
+  div#app .icon-cursor-move,
+  div#app .icon-crop,
+  div#app .icon-chemistry,
+  div#app .icon-speedometer,
+  div#app .icon-shield,
+  div#app .icon-screen-tablet,
+  div#app .icon-magic-wand,
+  div#app .icon-hourglass,
+  div#app .icon-graduation,
+  div#app .icon-ghost,
+  div#app .icon-game-controller,
+  div#app .icon-fire,
+  div#app .icon-eyeglass,
+  div#app .icon-envelope-open,
+  div#app .icon-envelope-letter,
+  div#app .icon-bell,
+  div#app .icon-badge,
+  div#app .icon-anchor,
+  div#app .icon-wallet,
+  div#app .icon-vector,
+  div#app .icon-speech,
+  div#app .icon-puzzle,
+  div#app .icon-printer,
+  div#app .icon-present,
+  div#app .icon-playlist,
+  div#app .icon-pin,
+  div#app .icon-picture,
+  div#app .icon-handbag,
+  div#app .icon-globe-alt,
+  div#app .icon-globe,
+  div#app .icon-folder-alt,
+  div#app .icon-folder,
+  div#app .icon-film,
+  div#app .icon-feed,
+  div#app .icon-drop,
+  div#app .icon-drawer,
+  div#app .icon-docs,
+  div#app .icon-doc,
+  div#app .icon-diamond,
+  div#app .icon-cup,
+  div#app .icon-calculator,
+  div#app .icon-bubbles,
+  div#app .icon-briefcase,
+  div#app .icon-book-open,
+  div#app .icon-basket-loaded,
+  div#app .icon-basket,
+  div#app .icon-bag,
+  div#app .icon-action-undo,
+  div#app .icon-action-redo,
+  div#app .icon-wrench,
+  div#app .icon-umbrella,
+  div#app .icon-trash,
+  div#app .icon-tag,
+  div#app .icon-support,
+  div#app .icon-frame,
+  div#app .icon-size-fullscreen,
+  div#app .icon-size-actual,
+  div#app .icon-shuffle,
+  div#app .icon-share-alt,
+  div#app .icon-share,
+  div#app .icon-rocket,
+  div#app .icon-question,
+  div#app .icon-pie-chart,
+  div#app .icon-pencil,
+  div#app .icon-note,
+  div#app .icon-loop,
+  div#app .icon-home,
+  div#app .icon-grid,
+  div#app .icon-graph,
+  div#app .icon-microphone,
+  div#app .icon-music-tone-alt,
+  div#app .icon-music-tone,
+  div#app .icon-earphones-alt,
+  div#app .icon-earphones,
+  div#app .icon-equalizer,
+  div#app .icon-like,
+  div#app .icon-dislike,
+  div#app .icon-control-start,
+  div#app .icon-control-rewind,
+  div#app .icon-control-play,
+  div#app .icon-control-pause,
+  div#app .icon-control-forward,
+  div#app .icon-control-end,
+  div#app .icon-volume-1,
+  div#app .icon-volume-2,
+  div#app .icon-volume-off,
+  div#app .icon-calendar,
+  div#app .icon-bulb,
+  div#app .icon-chart,
+  div#app .icon-ban,
+  div#app .icon-bubble,
+  div#app .icon-camrecorder,
+  div#app .icon-camera,
+  div#app .icon-cloud-download,
+  div#app .icon-cloud-upload,
+  div#app .icon-envelope,
+  div#app .icon-eye,
+  div#app .icon-flag,
+  div#app .icon-heart,
+  div#app .icon-info,
+  div#app .icon-key,
+  div#app .icon-link,
+  div#app .icon-lock,
+  div#app .icon-lock-open,
+  div#app .icon-magnifier,
+  div#app .icon-magnifier-add,
+  div#app .icon-magnifier-remove,
+  div#app .icon-paper-clip,
+  div#app .icon-paper-plane,
+  div#app .icon-power,
+  div#app .icon-refresh,
+  div#app .icon-reload,
+  div#app .icon-settings,
+  div#app .icon-star,
+  div#app .icon-symbol-female,
+  div#app .icon-symbol-male,
+  div#app .icon-target,
+  div#app .icon-credit-card,
+  div#app .icon-paypal,
+  div#app .icon-social-tumblr,
+  div#app .icon-social-twitter,
+  div#app .icon-social-facebook,
+  div#app .icon-social-instagram,
+  div#app .icon-social-linkedin,
+  div#app .icon-social-pinterest,
+  div#app .icon-social-github,
+  div#app .icon-social-google,
+  div#app .icon-social-reddit,
+  div#app .icon-social-skype,
+  div#app .icon-social-dribbble,
+  div#app .icon-social-behance,
+  div#app .icon-social-foursqare,
+  div#app .icon-social-soundcloud,
+  div#app .icon-social-spotify,
+  div#app .icon-social-stumbleupon,
+  div#app .icon-social-youtube,
+  div#app .icon-social-dropbox,
+  div#app .icon-social-vkontakte,
+  div#app .icon-social-steam {
+    font-family: "simple-line-icons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  div#app .no-items-found h3 {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+  }
+  div#app .no-items-found p {
+    color: #7e8990;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  div#app .table-listing td {
+    border-top: 1px solid #f0f2f5;
+    vertical-align: middle;
+}
+div#app .table th,
+div#app .table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #c8ced3;
+}
+
+div#app .row.no-gutters,
+div#app .row.no-gutters>[class*=col-] {
+    padding-right: inherit;
+    padding-left: inherit;
+}
+
+div#app .card {
+    border: 1px solid #d6dee3;
+}
+div#app .card {
+    margin-bottom: 1.5rem;
+}
+div#app .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #c8ced3;
+    border-radius: 0.25rem;
+}
+div#app .card-header:first-child {
+    border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+div#app .card-header {
+    background-color: white;
+    border-bottom: 1px solid rgba(207, 216, 220, 0.35);
+    color: #4273FA;
+    font-weight: 600;
+    padding: 1.25rem;
+}
+
+div#app .card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+
+div#app table {
+    border-collapse: collapse;
+}
+
+div#app .bg-bulk-info {
+    background: #b9c8de;
+}
+
+div#app .text-dark {
+    color: #2f353a !important;
+}
+div#app .font-weight-light {
+    font-weight: 300 !important;
+}
+div#app .align-middle {
+    vertical-align: middle !important;
+}
+
+div#app .text-primary {
+    color: #4273FA !important;
+}
+
+div#app .pr-2,
+div#app .px-2 {
+    padding-right: 0.5rem !important;
+}
+
+div#app button:not(:disabled), 
+div#app [type=button]:not(:disabled),
+ div#app [type=reset]:not(:disabled),
+ div#app [type=submit]:not(:disabled) {
+    cursor: pointer;
+}
+
+.main-sidebar{
+  z-index: 100;
+}
+  
+
+div#app .v--modal .card{
+  margin-bottom: 0;
+}
+
+div#app table tr td{
+  position: relative;
+}
+
+div#app table tr td div.link{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+  /*# sourceMappingURL=liste.css.map */
+  
+  

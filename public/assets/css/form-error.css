@@ -1,0 +1,42 @@
+.form-control-danger.is-invalid {
+    border-color: #ca0000fc !important;
+}
+
+.form-group.has-danger .form-control.form-control-danger {
+    border-color: #ca0000fc !important;
+}
+
+.form-input.form-control-danger {
+    border-color: #ca0000fc !important;
+}
+
+.form-group.has-danger .form-control-feedback.form-text {
+    display: none;
+}
+
+.form-group.has-danger.is-invalid~i~.form-control-feedback.form-text {
+    color: #ca0000fc;
+    font-style: italic;
+    font-size: 12px;
+    display: none;
+}
+
+.form-control-feedback.form-text {
+    display: none;
+}
+
+.form-control-danger.is-invalid~i~.form-control-feedback.form-text {
+    color: #ca0000fc;
+    font-style: italic;
+    font-size: 12px;
+    display: none;
+}
+
+.form-control-feedback.form-text {
+    position: absolute;
+    top: 100%;
+}
+
+.border-alert {
+    border-color: #de1e26 !important;
+}

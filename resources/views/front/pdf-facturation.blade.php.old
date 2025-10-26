@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Facture</title>
+    <style>
+        @page {
+            margin: 50px;
+            padding: 50px;
+        }
+
+        * {
+            font-size: 12px;
+            font-weight: 400;
+        }
+
+        .bloc-facture {
+            width: 100%;
+            position: relative;
+        }
+
+        h4 {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        .auto-break {
+            page-break-before: auto;
+            page-break-inside: auto;
+            page-break-after: auto;
+        }
+
+        .titre-bg {
+            background-color: rgb(119, 164, 100);
+        }
+
+        .row {
+            width: 100%;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .separateur {
+            height: 15px;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .v-middle {
+            vertical-align: middle;
+        }
+
+        .col {
+            width: 100%;
+            position: relative;
+        }
+
+        .col-2 {
+            width: 49%;
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo-content {
+            width: 100%;
+            position: relative;
+        }
+
+        .image-content {
+            width: 100%;
+            position: relative;
+        }
+
+        .logo-image {
+            height: 30px;
+        }
+
+        .image-une {
+            width: 80%;
+            /*max-height: 200px;*/
+        }
+
+        .info-societe {
+            width: 100%;
+            text-align: left;
+        }
+
+        .colone-info {
+            position: relative;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        .colone-info-2 {
+            position: relative;
+            width: 49%;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .colone-info-3 {
+            position: relative;
+            width: 32%;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        .span {
+            display: inline-block;
+            height: 12px;
+            font-size: 12px;
+        }
+
+        .titre {
+            font-weight: bold;
+        }
+
+        .titre-top {
+            margin-bottom: 10px;
+        }
+
+        .titre-center {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .titre-right {
+            text-align: right;
+        }
+
+        .titre-bottom {
+            margin-right: 10px;
+        }
+
+        .info-client {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .info-facture {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .padding-block-left {
+            padding-left: 35px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bloc-facture">
+        <div class="row">
+            <div class="col">
+                <div class="logo-content">
+                    <img src="{{public_path('assets/img/logo.png')}}" alt="" class="logo-image">
+                </div>
+                <div class="info-societe">
+                    <h3 class="titre-top">{{$data['app']['nom']}}</h3>
+                    <div class="colone-info"><span class="span">{{$data['app']['adresse']}}</span></div>
+                    <div class="colone-info"><span class="span">{{$data['app']['ville'] ? $data['app']['ville']['name']:''}} - {{$data['app']['ville']?$data['app']['ville']['code_postal']:''}}</span></div>
+                    <div class="colone-info"><span class="span">{{$data['app']['telephone']}}</span></div>
+                    <div class="colone-info"><span class="span">{{$data['app']['email']}}</span></div>
+                    <div class="colone-info"><span class="span">{{$data['app']['site_web']}}</span></div>
+                </div>
+            </div>
+            <div class="col" style="height: 95px;">
+                <div class="float-right">
+                    <div class="colone-info"><span class="span">{{$data['facture']['nom']}}</span></div>
+                    <div class="colone-info"><span class="span">{{$data['facture']['prenom']}}</span></div>
+                    <div class="colone-info"><span class="span">{{$data['facture']['ville']}} - {{$data['facture']['code_postal']}}</span></div>
+                    <div class="colone-info"><span class="span">{{$data['facture']['telephone']}}</span></div>
+                    <div class="colone-info"><span class="span">{{$data['facture']['email']}}</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" style="background-color: #cecbb3;padding-right: 5px;">
+                <h2 class="titre titre-right">Facture</h2>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col">
+                <div class="colone-info">
+                    <span class="titre titre-bottom">Commande :</span>
+                    <span class="span">{{$data['id']}}</span>
+                </div>
+                <div class="colone-info">
+                    <span class="titre titre-bottom">Date commade:</span>
+                    <span class="span">{{parse_date_string($data['date'])}}</span>
+                </div>
+            </div>
+            <div class="col">
+                <div class="colone-info-3">
+                    <span class="titre titre-bottom">Mode paiement :</span>
+                    <span class="span">{{$data['mode_payement']['titre']}}</span>
+                </div>
+                <div class="colone-info-3">
+                    <span class="titre titre-bottom">Status :</span>
+                    <span class="span">{{config('ligne-commande.status')[$data['status']]['value]}}</span>
+                </div>
+                <div class="colone-info-3">
+                    <span class="titre titre-bottom">Total payé :</span>
+                    <span class="span">{{$data['prix_total']}}€</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="separateur"></div>
+                <h3 class="titre titre-center">Détail</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table>
+                    <tr class="titre-bg">
+                        <th style="width: 70%">Devis</th>
+                        <th style="width: 15%">PU</th>
+                        <th style="width: 15%">Sous total</th>
+                    </tr>
+                </table>
+            </div>
+            @if(count($data['billeterie']) > 0)
+            <div class="col">
+                <div class="separateur"></div>
+                <div class="col" style="padding-left: 10px; height: 40px;">
+                    <h4 class="titre titre-bottom text-center">Billeterie</h4>
+                </div>
+                @foreach($data['billeterie'] as $key => $item)
+                <div class="col" style="border-bottom: 1px dashed black; margin-top: 15px;">
+                    <table>
+                        <tr>
+                            <th style="width: 70%; border-right: 1px dashed black;">
+                                <div class="col" style=" margin-bottom: -30px;">
+                                    <div class="col" style="height: 80px;">
+                                        <h4 class="titre titre-bottom" style="height: auto;">{{$item['titre']}}</h4>
+                                    </div>
+                                    <div class="col-2 v-middle">
+                                        <div class="image-content">
+                                            <img src="{{public_path($item['image'])}}" alt="" class="image-une">
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-left">
+                                        <div class="colone-info">
+                                            <span>Aller</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Lieu de départ :</span>
+                                            <span class="span">{{$item['lieu_depart_name']}}</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Lieu d'arrivée :</span>
+                                            <span class="span">{{$item['lieu_arrive_name']}}</span>
+                                        </div>
+                                        <div class="colone-info" style="height: 25px;">
+                                            <span class="titre titre-bottom">Date et heure de départ :</span>
+                                            <span class="span" style="word-break:break-all; word-wrap:break-word; max-width: 100px;">
+                                                {{date('d-m-Y', strtotime($item['date_depart']))}} à {{date('H:i', strtotime($item['heure_aller']))}}
+                                            </span>
+                                        </div>
+                                        @if($item['parcours'] == 2)
+                                        <div class="colone-info">
+                                            <span>Retour</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Lieu de départ :</span>
+                                            <span class="span">{{$item['lieu_arrive_name']}}</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Lieu d'arrivée :</span>
+                                            <span class="span">{{$item['lieu_depart_name']}}</span>
+                                        </div>
+                                        <div class="colone-info" style="height: 25px;">
+                                            <span class="titre titre-bottom">Date et heure de départ :</span>
+                                            <span class="span" style="word-break:break-all; word-wrap:break-word; max-width: 100px;">
+                                                {{date('d-m-Y', strtotime($item['date_retour']))}} à {{date('H:i', strtotime($item['heure_retour']))}}
+                                            </span>
+                                        </div>
+                                        @endif
+                                        @foreach($item['personne'] as $item_pers)
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">{{$item_pers['type']}} :</span>
+                                            <span class="span">{{$item_pers['nb']}}</span>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </th>
+                            <th style="width: 15%; border-right: 1px dashed black;">
+                                {{$item['prix_unitaire']}}€
+                            </th>
+                            <th style="width: 15%;">
+                                {{$item['prix_total']}}€
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                @endforeach
+            </div>
+            @endif
+            @if(count($data['excursion']) > 0)
+            <div class="col auto-break">
+                <div class="separateur"></div>
+
+                <div class="col" style="padding-left: 10px; height: 40px;">
+                    <h4 class="titre titre-bottom text-center">Excursion</h4>
+                </div>
+                @foreach($data['excursion'] as $key => $item)
+                <div class="col auto-break" style="border-bottom: 1px dashed black; margin-top: 15px;">
+                    <table>
+                        <tr>
+                            <th style="width: 70%; border-right: 1px dashed black;">
+                                <div class="col" style=" margin-bottom: -30px;">
+                                    <div class="col" style="height: 80px;">
+                                        <h4 class="titre titre-bottom" style="height: auto;">{{$item['title']}}</h4>
+                                    </div>
+                                    <div class="col-2 v-middle">
+                                        <div class="image-content">
+                                            <img src="{{public_path($item['fond_image'])}}" alt="" class="image-une">
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-left">
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Date d'excursion :</span>
+                                            <span class="span">{{date('d-m-Y', strtotime($item['date_excursion']))}}</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Destination :</span>
+                                            <span class="span">{{$item['ile']['name']}}</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Durée :</span>
+                                            <span class="span">
+                                                {{$item['duration']}}
+                                            </span>
+                                        </div>
+                                        @foreach($item['personne'] as $item_pers)
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">{{$item_pers['type']}} :</span>
+                                            <span class="span">{{$item_pers['nb']}}</span>
+                                        </div>
+                                        @endforeach
+                                        @if(count($item['supplement']))
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Supplement :</span>
+                                            <div style="padding-left: 10px; padding-top: 5px;">
+                                                <ul style="list-style: none;padding-left: 0;margin: 0;">
+                                                    @foreach($item['supplement'] as $item_supp)
+                                                    <li>{{$item_supp['titre']}} : {{$item_supp['prix']}}€</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        @endif
+                                    </div>
+                                </div>
+                            </th>
+                            <th style="width: 15%; border-right: 1px dashed black;">
+                                {{$item['prix_unitaire']}}€
+                            </th>
+                            <th style="width: 15%;">
+                                {{$item['prix_total']}}€
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                @endforeach
+            </div>
+            @endif
+            @if(count($data['hebergement']) > 0)
+            <div class="col auto-break">
+                <div class="separateur"></div>
+                <div class="col" style="padding-left: 10px; height: 40px;">
+                    <h4 class="titre titre-bottom text-center">Hébérgment</h4>
+                </div>
+                @foreach($data['hebergement'] as $key => $item)
+                <div class="col auto-break" style="border-bottom: 1px dashed black; margin-top: 15px;">
+                    <table>
+                        <tr>
+                            <th style="width: 70%; border-right: 1px dashed black;">
+                                <div class="col" style=" margin-bottom: -30px;">
+                                    <div class="col" style="height: 80px;">
+                                        <h4 class="titre titre-bottom" style="height: auto;">{{$item['chambre_name']}}</h4>
+                                    </div>
+                                    <div class="col-2 v-middle">
+                                        <div class="image-content">
+                                            <img src="{{public_path($item['chambre_image'])}}" alt="" class="image-une">
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-left">
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Hébergement :</span>
+                                            @if($item['vol'] == null)
+                                            <span class="span">Sans vol</span>
+                                            @else
+                                            <span class="span">Avec vol</span>
+                                            @endif
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Nombre de nuitées :</span>
+                                            <span class="span">{{diff_days($item['date_fin'],$item['date_debut'])}}</span>
+                                        </div>
+                                        <div class="colone-info" style="height: 25px;">
+                                            <span class="titre titre-bottom">Dates de séjour :</span>
+                                            <span class="span" style="word-break:break-all; word-wrap:break-word; max-width: 100px;">
+                                                {{date('d-m-Y', strtotime($item['date_debut']))}} au {{date('d-m-Y', strtotime($item['date_fin']))}}
+                                            </span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Base type :</span>
+                                            <span class="span">{{$item['chambre_base_type_titre']}} ({{$item['chambre_base_type_nombre']}}Pers.)</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Capacité max :</span>
+                                            <span class="span">{{$item['chambre_capacite']}}Pers.</span>
+                                        </div>
+                                        @foreach($item['personne'] as $item_pers)
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">{{$item_pers['type']}} :</span>
+                                            <span class="span">{{$item_pers['nb']}}</span>
+                                        </div>
+                                        @endforeach
+                                        <div class="colone-info" style="height: auto;">
+                                            <span class="titre titre-bottom">Supplement :</span>
+                                            <div style="padding-left: 10px; padding-top: 5px;">
+                                                <ul style="list-style: none;padding-left: 0;margin: 0;">
+                                                    @foreach($item['supplement'] as $item_supp)
+                                                    <li>{{$item_supp['titre']}} : {{$item_supp['prix']}}€</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </th>
+                            <th style="width: 15%; border-right: 1px dashed black;">
+                                {{$item['prix_unitaire']}}€
+                            </th>
+                            <th style="width: 15%;">
+                                {{$item['prix_total']}}€
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                @endforeach
+            </div>
+            @endif
+            @if(count($data['location']) > 0)
+            <div class="col auto-break">
+                <div class="separateur"></div>
+                <div class="col" style="padding-left: 10px; height: 40px;">
+                    <h4 class="titre titre-bottom text-center">Location</h4>
+                </div>
+                @foreach($data['location'] as $key => $item)
+                <div class="col auto-break" style="border-bottom: 1px dashed black; margin-top: 15px;">
+                    <table>
+                        <tr>
+                            <th style="width: 70%; border-right: 1px dashed black;">
+                                <div class="col">
+                                    <div class="col" style="height: 50px;">
+                                        <h4 class="titre titre-bottom" style="height: auto;">{{$item['titre']}}</h4>
+                                    </div>
+                                    <div class="col-2 v-middle">
+                                        <div class="image-content">
+                                            <img src="{{public_path($item['image'])}}" alt="" class="image-une">
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-left">
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Lieu de départ :</span>
+                                            <span class="span">{{$item['agence_recuperation_name']}}</span>
+                                        </div>
+                                        <div class="colone-info" style="height: 25px;">
+                                            <span class="titre titre-bottom">Date et heure de départ :</span>
+                                            <span class="span" style="word-break:break-all; word-wrap:break-word; max-width: 100px;">
+                                                {{date('d-m-Y', strtotime($item['date_recuperation']))}} à {{date('H:i', strtotime($item['heure_recuperation']))}}
+                                            </span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Lieur de retour :</span>
+                                            <span class="span">{{$item['agence_restriction_name']}}</span>
+                                        </div>
+                                        <div class="colone-info" style="height: 25px;">
+                                            <span class="titre titre-bottom">Date et heure de retour :</span>
+                                            <span class="span" style="word-break:break-all; word-wrap:break-word; max-width: 100px;">
+                                                {{date('d-m-Y', strtotime($item['date_restriction']))}} à {{date('H:i', strtotime($item['heure_restriction']))}}
+                                            </span>
+                                        </div>
+                                        @if($item['deplacement_lieu_tarif'] != null && $item['deplacement_lieu_tarif'] != 0)
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Supplément de déplacements :</span>
+                                            <span class="span">{{$item['deplacement_lieu_tarif']}}€</span>
+                                        </div>
+                                        @endif
+                                        @if($item['caution'] != null && $item['caution'] != 0)
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">{{trans('admin.vehicule-location.columns.caution')}} :</span>
+                                            <span class="span">{{$item['caution']}}€</span>
+                                        </div>
+                                        @endif
+                                        @if($item['franchise'] != null && $item['franchise'] != 0)
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">{{trans('admin.vehicule-location.columns.franchise')}} :</span>
+                                            <span class="span">{{$item['franchise']}}€</span>
+                                        </div>
+                                        @endif
+                                        @if($item['franchise_non_rachatable'] != null && $item['franchise_non_rachatable'] != 0)
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">{{trans('admin.vehicule-location.columns.franchise_non_rachatable')}} :</span>
+                                            <span class="span">{{$item['franchise_non_rachatable']}}€</span>
+                                        </div>
+                                        @endif
+                                        @foreach($item['personne'] as $item_pers)
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">{{$item_pers['type']}} :</span>
+                                            <span class="span">{{$item_pers['nb']}}</span>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="col text-center" style="height: 30px;">
+                                    <div class="colone-info-3">
+                                        <div style="border-bottom: 1px dashed black; width: 100px;margin: auto;"></div>
+                                    </div>
+                                    <div class="colone-info-3 text-center">
+                                        <h4 style="text-align: center;">Information conducteur</h4>
+                                    </div>
+                                    <div class="colone-info-3">
+                                        <div style="border-bottom: 1px dashed black; width: 100px; margin: auto;"></div>
+                                    </div>
+                                </div>
+                                <div class="col padding-block-left">
+                                    <div class="colone-info-2 text-left">
+                                        <span class="titre">Nom : </span>
+                                        <span> {{$item['nom_conducteur']}}</span>
+                                    </div>
+                                    <div class="colone-info-2 text-left">
+                                        <span class="titre">Prénom(s) : </span>
+                                        <span> {{$item['prenom_conducteur']}}</span>
+                                    </div>
+                                </div>
+                                <div class="col padding-block-left">
+                                    <div class="colone-info-3 text-left">
+                                        <span class="titre">Adresse : </span>
+                                        <span> {{$item['adresse_conducteur']}}</span>
+                                    </div>
+                                    <div class="colone-info-3 text-left">
+                                        <span class="titre">Ville : </span>
+                                        <span> {{$item['ville_conducteur']}}</span>
+                                    </div>
+                                    <div class="colone-info-3 text-left">
+                                        <span class="titre">Code postal : </span>
+                                        <span> {{$item['code_postal_conducteur']}}</span>
+                                    </div>
+                                </div>
+                                <div class="col padding-block-left">
+                                    <div class="colone-info-2 text-left">
+                                        <span class="titre">Téléphone : </span>
+                                        <span> {{$item['telephone_conducteur']}}</span>
+                                    </div>
+                                    <div class="colone-info-2 text-left">
+                                        <span class="titre">Email : </span>
+                                        <span> {{$item['email_conducteur']}}</span>
+                                    </div>
+                                </div>
+                                <div class="col padding-block-left">
+                                    <div class="colone-info-2 text-left">
+                                        <span class="titre">Date de naissance : </span>
+                                        <span> {{$item['date_naissance_conducteur']}}</span>
+                                    </div>
+                                    <div class="colone-info-2 text-left">
+                                        <span class="titre">Lieu de naissance : </span>
+                                        <span> {{$item['lieu_naissance_conducteur']}}</span>
+                                    </div>
+                                </div>
+                                <div class="col padding-block-left">
+                                    <div class="colone-info-3 text-left">
+                                        <span class="titre">Numero de permis : </span>
+                                        <span> {{$item['num_permis_conducteur']}}</span>
+                                    </div>
+                                    <div class="colone-info-3 text-left">
+                                        <span class="titre">Date de permis : </span>
+                                        <span> {{$item['date_permis_conducteur']}}</span>
+                                    </div>
+                                    <div class="colone-info-3 text-left">
+                                        <span class="titre">Lieu de délivrance du permis : </span>
+                                        <span> {{$item['lieu_deliv_permis_conducteur']}}</span>
+                                    </div>
+                                </div>
+                                <div class="col padding-block-left">
+                                    <div class="colone-info-3 text-left">
+                                        <span class="titre">Numero de pièce d'identité : </span>
+                                        <span> {{$item['num_identite_conducteur']}}</span>
+                                    </div>
+                                    <div class="colone-info-3 text-left">
+                                        <span class="titre">Date émission pièce d'identité : </span>
+                                        <span> {{$item['date_emis_identite_conducteur']}}</span>
+                                    </div>
+                                    <div class="colone-info-3 text-left">
+                                        <span class="titre">Lieu de délivrance pièce d'identité : </span>
+                                        <span> {{$item['lieu_deliv_identite_conducteur']}}</span>
+                                    </div>
+                                </div>
+                            </th>
+                            <th style="width: 15%; border-right: 1px dashed black;">
+                                {{$item['prix_unitaire']}}€
+                            </th>
+                            <th style="width: 15%;">
+                                {{$item['prix_total']}}€
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                @endforeach
+            </div>
+            @endif
+            @if(count($data['transfert']) > 0)
+            <div class="col auto-break">
+                <div class="separateur"></div>
+                <div class="col" style="padding-left: 10px; height: 40px;">
+                    <h4 class="titre titre-bottom text-center">Transfert</h4>
+                </div>
+                @foreach($data['transfert'] as $key => $item)
+                <div class="col auto-break" style="border-bottom: 1px dashed black; margin-top: 15px;">
+                    <table>
+                        <tr>
+                            <th style="width: 70%; border-right: 1px dashed black;">
+                                <div class="col" style=" margin-bottom: -30px;">
+                                    <div class="col" style="height: 80px;">
+                                        <h4 class="titre titre-bottom" style="height: auto;">{{$item['titre']}}</h4>
+                                    </div>
+                                    <div class="col-2 v-middle">
+                                        <div class="image-content">
+                                            <img src="{{public_path($item['image'])}}" alt="" class="image-une">
+                                        </div>
+                                    </div>
+                                    <div class="col-2 text-left">
+                                        <div class="colone-info">
+                                            <span>Aller</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Lieu de départ :</span>
+                                            <span class="span">{{$item['lieu_depart_name']}}</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Lieu d'arrivée :</span>
+                                            <span class="span">{{$item['lieu_arrive_name']}}</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Date et heure de départ :</span>
+                                            <span class="span" style="word-break:break-all; word-wrap:break-word; max-width: 100px;">
+                                                {{date('d-m-Y', strtotime($item['date_depart']))}} à {{date('H:i', strtotime($item['heure_depart']))}}
+                                            </span>
+                                        </div>
+                                        @if($item['prime_depart'] > 0)
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Prime nuit :</span>
+                                            <span class="span">{{$item['prime_depart']}}</span>
+                                        </div>
+                                        @endif
+                                        <div style="height: 25px;"></div>
+                                        @if($item['parcours'] == 2)
+                                        <div class="colone-info">
+                                            <span>Retour</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Lieu de départ :</span>
+                                            <span class="span">{{$item['lieu_arrive_name']}}</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Lieu d'arrivée :</span>
+                                            <span class="span">{{$item['lieu_depart_name']}}</span>
+                                        </div>
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Date et heure de départ :</span>
+                                            <span class="span" style="word-break:break-all; word-wrap:break-word; max-width: 100px;">
+                                                {{date('d-m-Y', strtotime($item['date_retour']))}} à {{date('H:i', strtotime($item['heure_retour']))}}
+                                            </span>
+                                        </div>
+                                        @if($item['prime_retour'] > 0)
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">Prime nuit :</span>
+                                            <span class="span">{{$item['prime_retour']}}</span>
+                                        </div>
+                                        @endif
+                                        <div style="height: 25px;"></div>
+                                        @endif
+                                        @foreach($item['personne'] as $item_pers)
+                                        <div class="colone-info">
+                                            <span class="titre titre-bottom">{{$item_pers['type']}} :</span>
+                                            <span class="span">{{$item_pers['nb']}}</span>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </th>
+                            <th style="width: 15%; border-right: 1px dashed black;">
+                                {{$item['prix_unitaire']}}€
+                            </th>
+                            <th style="width: 15%;">
+                                {{$item['prix_total']}}€
+                            </th>
+                        </tr>
+                    </table>
+                </div>
+                @endforeach
+            </div>
+            @endif
+            @if($data['frais_dossier'])
+            <div class="col">
+                <div class="separateur"></div>
+            </div>
+            <div class="col auto-break" style="border-bottom: 1px dashed black;">
+                <table>
+                    <tr>
+                        <th style="width: 70%;">
+                            <h4 class="titre text-left">Frais de dossier</h4>
+                        </th>
+                        <th style="width: 15%; border-left: 1px dashed gray;">
+                            {{$data['frais_dossier']}}€
+                        </th>
+                        <th style="width: 15%; border-left: 1px dashed gray;">
+                            {{$data['frais_dossier']}}€
+                        </th>
+                    </tr>
+                </table>
+            </div>
+            @endif
+        </div>
+
+        <div class="row auto-break">
+            <div class="col" style="height: 10px;"> </div>
+            <div class="col">
+                <table style="border: 1px solid black;">
+                    <tr>
+                        <th class="text-center" style="width: 85%; border-bottom: 1px solid black;">
+                            <div class="col">
+                                TVA
+                            </div>
+                        </th>
+
+                        <th style="width: 15%;border-left: 1px solid black; border-bottom: 1px solid black;">
+                            {{$data['tva']}}€
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="text-center" style="width: 85%; border-bottom: 1px solid black;">
+                            <div class="col">
+                                HT
+                            </div>
+                        </th>
+
+                        <th style="width: 15%;border-left: 1px solid black; border-bottom: 1px solid black;">
+                            {{$data['prix']}}€
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="text-center" style="width: 85%;">
+                            <div class="col">
+                                Total TTC
+                            </div>
+                        </th>
+
+                        <th style="width: 15%;border-left: 1px solid black;">
+                            {{$data['prix_total']}}€
+                        </th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

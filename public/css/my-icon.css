@@ -1,0 +1,36 @@
+    .nav-icon.fas.fa-island {
+        background-image: url("icon-img/island.png");
+        background-size: cover;
+        width: 23px;
+        height: 23px;
+    }
+    
+    .nav-icon.fas.fa-setting {
+        background-image: url("icon-img/setting.png");
+        background-size: cover;
+        width: 23px;
+        height: 23px;
+    }
+    
+    .nav-icon.fas.fa-pays {
+        background-image: url("icon-img/country.png");
+        background-size: cover;
+        width: 23px;
+        height: 23px;
+    }
+    
+    .nav-icon.fas.fa-villes {
+        background-image: url("icon-img/ville.png");
+        background-size: cover;
+        width: 23px;
+        height: 23px;
+    }
+    
+    a.nav-link {
+        display: flex;
+        align-items: center;
+    }
+    
+    a.nav-link>p {
+        padding-left: 2px;
+    }
